@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@ToString
+
 public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +22,13 @@ public class Place {
     private  City city;
     @Column(name = "name", length = 45)
     private String name;
+
+    @Override
+    public String toString(){
+        return "Place {"
+                + "id =" + id + ", "
+                + "cityId =" + city.getId() + ", "
+                + "name = " + name
+                + "};"  + "\n";
+    }
 }

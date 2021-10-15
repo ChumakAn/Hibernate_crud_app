@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@ToString
 public class TransportType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +18,13 @@ public class TransportType {
     private Integer id;
     @Column(name = "name", length = 45)
     private String name;
+
+    @Override
+    public String toString() {
+        return "Transport Type {"
+                + "id = " + id + ", "
+                + "name = " + name
+                + "};" + "\n";
+
+    }
 }

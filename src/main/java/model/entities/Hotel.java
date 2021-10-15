@@ -12,7 +12,7 @@ import java.util.Collection;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@ToString
+
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,19 @@ public class Hotel {
     @Column(name = "rate")
     private Integer rate;
 
+    public Hotel(Integer id, String name, Integer rate){
+        this.id = id;
+        this.name = name;
+        this.rate = rate;
+    }
+
+    @Override
+    public String toString(){
+        return "Hotel {"
+                + "id =" + id + ", "
+                + "name = " + name + ", "
+                + "rate = " + rate
+                + "};"  + "\n";
+    }
 
 }

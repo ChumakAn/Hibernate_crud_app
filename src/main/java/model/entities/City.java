@@ -12,7 +12,7 @@ import java.util.Collection;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@ToString
+
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +28,21 @@ public class City {
     private Country country;
     @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
     private Collection<Place> places;
+
+
+    public City(Integer id, Hotel hotel, String name, Country country) {
+        this.id = id;
+        this.hotel = hotel;
+        this.name = name;
+        this.country = country;
+    }
+    @Override
+    public String toString(){
+        return "City {"
+                + "id =" + id + ", "
+                + "hotelId =" + hotel.getId() + ", "
+                + "name = " + name + ", "
+                + "countryId = " + country.getId()
+                + "};"  + "\n";
+    }
 }

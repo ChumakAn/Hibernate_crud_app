@@ -13,7 +13,7 @@ import java.util.Collection;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@ToString
+
 public class Guide {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,4 +27,21 @@ public class Guide {
     private String telephoneNumber;
     @OneToMany(mappedBy = "guide", fetch = FetchType.EAGER)
     private Collection<Route> routes;
+
+    public Guide(Integer id, String name, String surname, String telephoneNumber){
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    @Override
+    public String toString(){
+        return "Guide {"
+                + "id =" + id + ", "
+                + "name = " + name + ", "
+                + "surname = " + surname + ", "
+                + "telephone number = " + telephoneNumber
+                + "};"  + "\n";
+    }
 }

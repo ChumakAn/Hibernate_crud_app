@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@ToString
+
 public class PaymentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +19,12 @@ public class PaymentType {
     private Integer id;
     @Column (name = "type", length = 15)
     private String type;
+
+    @Override
+    public String toString(){
+        return "Payment type {"
+                + "id =" + id + ", "
+                + "type = " + type
+                + "};"  + "\n";
+    }
 }
